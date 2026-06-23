@@ -49,6 +49,34 @@ python rank.py \
 
 ---
 
+## Folder Structure
+
+```text
+redrob/
+├── candidates/
+│   ├── candidates.jsonl                  # Raw input candidate data
+│   └── submission_metadata_template.yaml # Metadata template
+├── pipeline/
+│   ├── __init__.py
+│   ├── embed.py        # Embeddings generation and loading
+│   ├── features.py     # Feature engineering and filtering
+│   ├── parse.py        # Parsing logic for JSONL to DataFrames
+│   ├── reason.py       # Candidate reasoning generation
+│   ├── rerank.py       # Composite scoring logic
+│   └── validate.py     # Validation logic for final output
+├── processed_csvs/     # Directory for precomputed flat CSVs
+├── venv/               # Python virtual environment
+├── .gitattributes
+├── .gitignore
+├── rank.py             # Main pipeline entrypoint script
+├── README.md           # Documentation (this file)
+├── requirements.txt    # Python dependencies
+├── team_soloking.csv   # Final output ranking CSV
+└── validate_submission.py # Standalone submission validation script
+```
+
+---
+
 ## Architecture
 
 ```
