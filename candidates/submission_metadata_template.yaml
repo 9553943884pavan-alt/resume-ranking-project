@@ -1,0 +1,91 @@
+# Redrob Hackathon — Submission Metadata Template
+#
+# Copy this file to your repo root as `submission_metadata.yaml` and fill it in.
+# The fields here should match what you submit via the portal at upload time.
+# Stage 3 review uses this file to verify your portal metadata.
+
+# ============================================================================
+# Team identity
+# ============================================================================
+team_name: "soloking"  # Used in leaderboard and announcements
+
+primary_contact:
+  name: "Thunuguntla Venkata Pavan Kumar"
+  email: "pavankuma3530@gmail.com"   # Used for all organizer communication
+  phone: "+91-9849820952"        # Used for top-50 / top-10 outreach
+
+team_members:
+  - name: "Thunuguntla Venkata Pavan Kumar"
+    email: "pavankuma3530@gmail.com"
+    role: "Team Lead + ML Engineer"          # Optional, e.g. "Team Lead", "Backend", "Data"
+
+  # Add more members as needed; solo participants list just one member
+
+# ============================================================================
+# Code and reproducibility
+# ============================================================================
+github_repo: "https://github.com/9553943884pavan-alt/resume-ranking-project.git"
+# Required. Must be reachable. Private repos OK if you can grant organizer
+# access at Stage 3 (the email to add will be communicated then).
+
+sandbox_link: "https://huggingface.co/spaces/YOUR_USERNAME/redrob-ranker"
+# Required. A working hosted environment where the ranker can be run on a small
+# candidate sample. See Section 10.5 of submission_spec.md for acceptable
+# platforms (HuggingFace Spaces, Streamlit Cloud, Replit, Colab, Docker, Binder).
+
+reproduce_command: "python rank.py --candidates ./candidates.jsonl --out ./submission.csv"
+# The single command that produces submission.csv from candidates.jsonl.
+# Should run end-to-end within 5 minutes on CPU with 16GB RAM and no network.
+
+# ============================================================================
+# Compute environment
+# ============================================================================
+compute:
+  platform: "Windows 11, Intel i5 11th Gen, 8 GB RAM"                    # Or: "AWS EC2 c5.4xlarge", "Local Linux box", etc.
+  cpu_cores: 8                                  # Number of CPU cores used
+  ram_gb: 8                                    # Available RAM in GB
+  python_version: "3.12.10"                      # python --version
+  os: "Windows 11"                              # Or "Ubuntu 22.04 LTS", etc.
+  uses_gpu_for_inference: false                 # Must be false — see compute constraints
+  has_network_during_ranking: false             # Must be false — no API calls during ranking
+  pre_computation_required: True               # true if you pre-compute embeddings or train models offline
+  pre_computation_time_minutes: 15               # Approximate, if applicable
+
+# ============================================================================
+# AI tools declaration
+# ============================================================================
+# Transparency only — declared use is NOT penalized. Be honest. Stage 5 interview
+# may verify these declarations against your code; declarations that contradict
+# your code or your interview are flagged.
+ai_tools_used:
+  - "ChatGPT"
+
+ai_usage_summary: |
+  Used ChatGPT as a development assistant for brainstorming ranking strategies, reviewing scoring logic, debugging Python code,
+  validating candidate-ranking methodology, and refining feature engineering decisions. All final implementation, scoring design,
+  candidate analysis, and submission outputs were manually reviewed, validated, and executed by me.
+  Code was written by ChatGPT
+
+# ============================================================================
+# Approach summary (optional but recommended)
+# ============================================================================
+methodology_summary: |
+  Built a multi-stage candidate ranking pipeline for a Search/Ranking ML role.
+  First, candidate profiles were transformed into structured documents by combining title, headline, summary, 
+  career history, search evidence, skills, and education. Both candidate documents and the JD were preprocessed and embedded using a sentence-transformer model.
+  Semantic retrieval was used to identify the most relevant candidates. A custom search-evidence scorer then rewarded explicit experience in retrieval systems, 
+  learning-to-rank, semantic search, embeddings, vector databases, recommendation systems, NDCG/MRR evaluation, and production search infrastructure.
+  Additional scoring layers evaluated technical assessments, recruiter-behavior signals, logistics fit (location, notice period, salary expectations, 
+  relocation flexibility), and years of experience alignment with the target range. Scores were normalized and combined using weighted ranking to balance relevance, technical strength, 
+  hiring feasibility, and candidate availability. The final ranking was validated through manual recruiter-style analysis of top and bottom candidates to ensure 
+  genuine search-engineering profiles ranked above generic AI/ML candidates and to reduce keyword-matching bias.
+
+# ============================================================================
+# Declarations
+# ============================================================================
+declarations:
+  read_submission_spec: true        # I have read submission_spec.md in full
+  code_is_original_work: true       # My code is my team's original work (using AI as a tool is fine)
+  no_collusion: true                # I have not coordinated my submission with other teams
+  honeypot_check_done: false        # OPTIONAL — set true if you explicitly checked for honeypots in your ranking
+  reproduction_tested: true         # I have tested that my reproduce_command runs end-to-end

@@ -1,0 +1,26 @@
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Virtual environments
+venv/
+env/
+.venv/
+.env
+
+# Data files
+candidates/*.jsonl
+!candidates/candidates.jsonl
+processed_csvs/
+!processed_csvs/career_history.csv
+*.npy
+team_*.csv
+
+# Notebooks
+.ipynb_checkpoints/
+
+# IDE / OS
+.vscode/
+.idea/
+.DS_Store
