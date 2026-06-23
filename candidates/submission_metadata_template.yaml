@@ -7,16 +7,16 @@
 # ============================================================================
 # Team identity
 # ============================================================================
-team_name: "soloking"  # Used in leaderboard and announcements
+team_name: "SoloKing"  # Used in leaderboard and announcements
 
 primary_contact:
   name: "Thunuguntla Venkata Pavan Kumar"
-  email: "pavankuma3530@gmail.com"   # Used for all organizer communication
+  email: "9553943884pavan@gmail.com"   # Used for all organizer communication
   phone: "+91-9849820952"        # Used for top-50 / top-10 outreach
 
 team_members:
   - name: "Thunuguntla Venkata Pavan Kumar"
-    email: "pavankuma3530@gmail.com"
+    email: "9553943884pavan@gmail.com"
     role: "Team Lead + ML Engineer"          # Optional, e.g. "Team Lead", "Backend", "Data"
 
   # Add more members as needed; solo participants list just one member
